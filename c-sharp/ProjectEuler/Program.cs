@@ -7,18 +7,18 @@ using ProjectEuler.Problems;
 
 namespace ProjectEuler
 {
-	public class Program
-	{
-		static void Main(string[] args)
-		{
-		    Console.WriteLine("        Project Euler solutions         ");
-		    Console.WriteLine("----------------------------------------");
-		    Console.WriteLine("by Andrew Burgess <andrew@deceptacle.com");
-		    Console.WriteLine();
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("        Project Euler solutions         ");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("by Andrew Burgess <andrew@deceptacle.com");
+            Console.WriteLine();
 
-		    var problemClasses = GetProblems();
+            var problemClasses = GetProblems();
 
-		    var list = problemClasses.Keys.OrderBy(x => x).ToList();
+            var list = problemClasses.Keys.OrderBy(x => x).ToList();
             for (var i = 0; i < list.Count; i++)
             {
                 Console.WriteLine((i + 1) + ". " + list[i]);
@@ -26,13 +26,13 @@ namespace ProjectEuler
 
             Problem currentProblem;
 
-		    string input;
-		    do
-		    {
-		        Console.Write("Enter problem number to load: ");
-		        input = Console.ReadLine();
+            string input;
+            do
+            {
+                Console.Write("Enter problem number to load: ");
+                input = Console.ReadLine();
 
-		        int num;
+                int num;
                 if (int.TryParse(input, out num))
                 {
                     if (num >= 1 && num <= list.Count)
@@ -57,8 +57,8 @@ namespace ProjectEuler
                 {
                     Console.WriteLine("ERROR: Input was not a number\n");
                 }
-		    } while (input != "quit" && input != "exit"); 
-		}
+            } while (input != "quit" && input != "exit"); 
+        }
 
         static IDictionary<string, string> GetProblems()
         {
@@ -68,5 +68,5 @@ namespace ProjectEuler
             var types = assembly.GetTypes().Where(x => String.Equals(x.Namespace, ns, StringComparison.Ordinal));
             return types.Where(x => x.Name != "Problem" && !x.Name.StartsWith("<>")).ToDictionary(x => x.Name, x => x.FullName);
         }
-	}
+    }
 }
