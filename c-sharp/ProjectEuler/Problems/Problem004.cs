@@ -7,7 +7,6 @@ namespace ProjectEuler.Problems
     public class Problem004 : Problem
     {
         public override string Name { get { return "Find the largest palindrome made from the product of two 3-digit numbers."; } }
-        public override string Description { get { return "A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 99.\n\nFind the largest palindrome made from the product of two 3-digit numbers."; } }
 
         public override string Execute()
         {

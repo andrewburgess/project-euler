@@ -43,7 +43,6 @@ namespace ProjectEuler
                         Console.WriteLine("\n\nProblem Number: " + num);
                         Console.WriteLine(currentProblem.Name);
                         Console.WriteLine(string.Empty.PadRight(40, '-'));
-                        Console.WriteLine(currentProblem.Description);
                         Console.WriteLine();
                         currentProblem.Run();
                         Console.WriteLine("\n\n");

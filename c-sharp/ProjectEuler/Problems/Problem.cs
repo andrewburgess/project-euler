@@ -8,8 +8,7 @@ namespace ProjectEuler.Problems
         protected DateTime StartTime { get; set; }
         protected DateTime EndTime { get; set; }
 
-        public virtual string Name { get { return string.Empty;  } }
-        public virtual string Description { get { return string.Empty; } }
+        public abstract string Name { get; }
 
         public void Run()
         {

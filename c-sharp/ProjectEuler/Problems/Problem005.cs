@@ -7,7 +7,6 @@ namespace ProjectEuler.Problems
     public class Problem005 : Problem
     {
         public override string Name { get { return "What is the smallest number divisible by each of the numbers 1 to 20?"; } }
-        public override string Description { get { return "2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.\n\nWhat is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?"; } }
 
         public override string Execute()
         {
