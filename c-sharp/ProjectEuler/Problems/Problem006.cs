@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+
 namespace ProjectEuler.Problems
 {
     public class Problem006 : Problem
@@ -6,8 +9,10 @@ namespace ProjectEuler.Problems
 
         public override string Execute()
         {
-            var result = 0;
-            return result.ToString();
+            var sumOfSquares = Enumerable.Range(1, 100).Aggregate(1l, (current, next) => current + (next*next));
+            var squareOfSums = (long) Math.Pow(Enumerable.Range(1, 100).Sum(x => x), 2);
+
+            return (squareOfSums - sumOfSquares).ToString();
         }
     }
 }
