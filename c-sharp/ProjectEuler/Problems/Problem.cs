@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProjectEuler.Problems
 {
@@ -43,6 +45,38 @@ namespace ProjectEuler.Problems
             }
 
             return factors;
+        }
+
+        protected List<long> GetPrimes(int limit)
+        {
+            var list = new List<long>() {2, 3};
+
+            if (limit <= 2) return list.Take(limit).ToList();
+
+            for (var i = 2; i < limit; i++)
+            {
+                //Calculate next prime
+                var isPrime = false;
+
+                for (var j = list.Last() + 1; isPrime == false; j++)
+                {
+                    var current = j;
+                    Parallel.ForEach(list, (x, loopState) =>
+                                               {
+                                                   isPrime = true;
+                                                   if (current % x == 0)
+                                                   {
+                                                       isPrime = false;
+                                                       loopState.Break();
+                                                   }
+                                               });
+
+                    if (isPrime)
+                        list.Add(j);
+                }
+            }
+
+            return list;
         }
     }
 }
